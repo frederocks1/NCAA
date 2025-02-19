@@ -2,7 +2,7 @@ from get_games import get_games, get_kenpom
 from results import actual_winners
 from random import Random
 from copy import deepcopy
-from cPickle import load, dump
+from cPickle import load, dump, file
 
 rand = Random().random
 
@@ -148,7 +148,7 @@ def test_models(n_reps):
         possible_list = sorted([[k,v] for k,v in possible_point_bins.iteritems()])
         actual_list = sorted([[k,v] for k,v in actual_point_bins.iteritems()])
 
-        print "model %s avg: %s, distribution: %s" % (
+        print 'model %s avg: %s, distribution: %s' % (
             str(model), average(list(ncorrect_bins.iteritems())), ncorrect_list)
 
         results[str(model)] = (ncorrect_list, possible_list, actual_list)
